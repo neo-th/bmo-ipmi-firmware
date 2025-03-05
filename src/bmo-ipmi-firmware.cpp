@@ -7,7 +7,6 @@ const int statusPin = 4; // PLED# connected to digital pin 4
 void setup() {
   Serial.begin(9600);
   
-  // Set pin modes
   pinMode(powerPin, OUTPUT);
   pinMode(resetPin, OUTPUT);
   pinMode(statusPin, INPUT);
@@ -26,9 +25,9 @@ void loop() {
     
     if (command == "POWER ON") {
         if (!systemIsOn) {
-            digitalWrite(powerPin, LOW); // Simulate power button press
+            digitalWrite(powerPin, LOW);
             delay(500);
-            digitalWrite(powerPin, HIGH); // Release button
+            digitalWrite(powerPin, HIGH);
             Serial.println("Powered On");
         } else {
             Serial.println("System already on");
@@ -36,18 +35,18 @@ void loop() {
     } 
     else if (command == "POWER OFF") {
         if (systemIsOn) {
-            digitalWrite(powerPin, LOW); // Simulate power button press
+            digitalWrite(powerPin, LOW);
             delay(500);
-            digitalWrite(powerPin, HIGH); // Release button
+            digitalWrite(powerPin, HIGH);
             Serial.println("Powered Off");
         } else {
             Serial.println("System already off");
         }
     } 
     else if (command == "RESET") {
-        digitalWrite(resetPin, LOW); // Simulate reset button press
+        digitalWrite(resetPin, LOW);
         delay(500);
-        digitalWrite(resetPin, HIGH); // Release button
+        digitalWrite(resetPin, HIGH);
         Serial.println("System Reset");
     }
   }
